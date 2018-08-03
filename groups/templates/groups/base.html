@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>Index page</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'groups/style.css' %}"/>
+</head>
+<body>
+	<div class="header" id="test">
+		<a class="main_page" href="{% url 'groups:Index' %}">
+			<img src="{% static 'home.png' %}" class="main_icon">
+		</a>
+	</div>
+	{% if main_group %}
+		<h1 class="cont_header">{{ main_group.name }}</h1>
+	{% else %}
+		<h1 class="cont_header">All groups</h1>
+	{% endif %}
+	
+		{% if index %}
+		<div class="container">
+			{% for group in groups %}
+				<div class="field">
+					<a class="group_link" href="{{group.get_absolute_url}}">
+						<img class="group_img" src="{{ group.icon.url }}">
+						<strong class="item_name">{{ group.name }}</strong>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+		{% elif main_group %}
+		<div class="container">
+			<div class="group_cont">
+				<h2 class="cont_header">Child groups</h2>
+				{% for group in groups %}
+					<div class="field">
+						<a class="group_link" href="{{group.get_absolute_url}}">
+							<img class="group_img" src="{{ group.icon.url }}">
+							<strong class="item_name">{{ group.name }}</strong>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="elem_cont">
+				<h2 class="cont_header">Child elems</h2>
+				{% for elem in elems %}
+					<div class="field">
+						<img class="group_img" src="{{ elem.icon.url }}">
+						<strong class="item_name">{{ elem.name }}</strong>
+					</div>
+				{% endfor %}
+				<a class="add_button" id="add_field" href="{{ main_group.get_add_url }}"><strong>New elem</strong></a>
+			</div>
+		</div>
+		{% endif %}
+	
+</body>
+</html>

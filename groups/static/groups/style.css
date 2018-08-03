@@ -1,0 +1,146 @@
+body {
+	font-family: arial;
+	height: 100%;
+	background-size: cover;
+	overflow-x: hidden;
+	background-repeat: no-repeat;
+	background-image: url("background.jpg");
+}
+
+label {
+	margin-right: 10px;
+}
+
+li {
+	margin-top: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.header {
+	position: relative;
+	width: 101%;
+	height: 8vh;
+	left: -0.5%;
+	top: -1vh;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.group_list {
+	position: relative;
+}
+
+.container {
+	position: relative;
+	width: 80%;
+	height: 90vh;
+	left: 10%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.elem_cont, .group_cont {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	background-color: rgba(255,255,255, 0.7);
+}
+
+.group_cont {
+	left: 0;
+	border-right: 2px solid gray;
+}
+
+.elem_cont {
+	right: 0;
+	border-left: 2px solid gray;
+}
+
+.cont_header {
+	text-align: center;
+}
+
+.field {
+	position: relative;
+	width: 98%;
+	height: 10%;
+	left: 1%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
+	background-color: rgba(255,255,255, 0.7);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	top: 10px;
+}
+
+.group_link {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.group_img {
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
+	left: 10px;
+}
+
+.main_page {
+	position: absolute;
+	width: 2%;
+	height: 100%;
+	left: 1%;
+}
+
+.main_icon {
+	position: absolute;
+	top: 25%;
+	height: 50%;
+	max-width: 100%;
+}
+
+.main_icon:hover {
+	border-radius: 50%;
+	background-color: white;
+}
+
+.group_link:hover {
+	color: rgba(0,0,255, 0.5);
+}
+
+.add_button:hover {
+	color: #FFA500;
+}
+
+.add_button {
+	position: absolute;
+	width: 30%;
+	height: 6%;
+	bottom: 10px;
+	left: 35%;
+	color: white;
+	background-color: rgba(0,0,0,0.7);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add_form {
+	position: absolute;
+	width: 30%;
+	/*height: 70%;*/
+	left: 35%;
+	border: 1px solid red;
+	/*display: flex;*/
+	/*justify-content: center;*/
+	/*align-items: center;*/
+}
