@@ -6,8 +6,8 @@ class Group(models.Model):
 	name = models.CharField(max_length=64)
 	description = models.TextField(max_length=512, blank=True, null=True)
 	icon = models.ImageField(upload_to="groups/%Y/%m/%d/", blank=True, verbose_name="Иконка")
-	child_groups = models.PositiveIntegerField(verbose_name="Дочерние группы", default=0)
-	child_elems = models.PositiveIntegerField(verbose_name="Дочерние элементы", default=0)
+	# child_groups = models.PositiveIntegerField(verbose_name="Дочерние группы", default=0)
+	# child_elems = models.PositiveIntegerField(verbose_name="Дочерние элементы", default=0)
 
 	class Meta:
 		ordering = ['name']
@@ -20,8 +20,14 @@ class Group(models.Model):
 	def get_absolute_url(self):
 		return reverse('groups:GroupDetail', args=[self.pk])
 
-	def get_add_url(self):
-		return reverse('groups:ElemCreate', args=[self.pk])
+	# def get_add_url(self):
+	# 	return reverse('groups:ElemCreate')
+
+	def child_groups(self):
+		return Group.objects.filter(parent_group = self).count()
+
+	def child_elems(self):
+		return Elem.objects.filter(elem_parent_group = self).count()
 
 class Elem(models.Model):
 	elem_parent_group = models.ForeignKey(Group, related_name='Elem_parent_group', verbose_name="Родительская группа элемента", on_delete=models.CASCADE)

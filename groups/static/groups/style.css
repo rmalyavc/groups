@@ -121,10 +121,10 @@ a {
 }
 
 .add_button {
-	position: absolute;
+	position: relative;
 	width: 30%;
 	height: 6%;
-	bottom: 10px;
+	top: 20px;
 	left: 35%;
 	color: white;
 	background-color: rgba(0,0,0,0.7);
@@ -134,13 +134,19 @@ a {
 	align-items: center;
 }
 
+#add_button {
+	width: 40%;
+	height: 10%;
+}
+
+#id_description {
+	width: 50%;
+}
+
 .add_form {
 	position: absolute;
 	width: 30%;
-	/*height: 70%;*/
+	height: 35%;
 	left: 35%;
-	border: 1px solid red;
-	/*display: flex;*/
-	/*justify-content: center;*/
-	/*align-items: center;*/
+	text-align: center;
 }

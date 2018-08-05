@@ -2,8 +2,9 @@
 
 {% load static %}
 <div class="container">
-	<form action="." class="add_form" method="post">
+	<form action="{% url 'groups:ElemCreate' %}" class="add_form" method="post" enctype='multipart/form-data'>
 		{{ form.as_p }}
         {% csrf_token %}
+        <button class="add_button" id="add_button">Add</button>
 	</form>
 </div>

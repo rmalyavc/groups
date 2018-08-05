@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from .models import Group, Elem
 from .forms import ElemCreateForm
 
@@ -7,6 +7,12 @@ def Index(request):
 	return render(request, 'groups/base.html', {
 		'index': 'index',
 		'groups': groups,
+	})
+
+def elems(request):
+	elems = Elem.objects.filter(checked = True)
+	return render(request, 'groups/base.html', {
+		'elems': elems,	
 	})
 
 def detail(request, id):
@@ -19,11 +25,18 @@ def detail(request, id):
 		'main_group': group,
 	})
 
-def create_elem(request, group_id):
-	group = Group.objects.get(pk = group_id)
-	form = ElemCreateForm()
-	return render(request, 'groups/add.html', {
-		'group': group,
-		'form': form,
-	})
+def create_elem(request):
+	print(request.method + '\n')
+	if request.method == 'GET':
+		form = ElemCreateForm()
+		return render(request, 'groups/add.html', {
+			'form': form,
+		})
+	else:
+		form = ElemCreateForm(request.POST, request.FILES)
+		print('test!\n')
+		print(form.data)
+		if form.is_valid():
+			form.save()
+		return redirect('groups:Elems')
 # Create your views here.

@@ -7,7 +7,8 @@ app_name="groups"
 
 urlpatterns = [
     path('', views.Index, name='Index'),
+    path('elems', views.elems, name='Elems'),
     path('detail/<int:id>', views.detail, name='GroupDetail'),
-    path('create_elem/<int:group_id>', views.create_elem, name='ElemCreate'),
+    path('create_elem', views.create_elem, name='ElemCreate'),
     # path('memo_del/', views.memo_del, name='memo_del'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
